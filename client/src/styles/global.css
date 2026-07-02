@@ -1,0 +1,87 @@
+:root {
+  color-scheme: dark;
+  --page-background:
+    radial-gradient(circle at top, rgba(56, 189, 248, 0.24), transparent 34%),
+    radial-gradient(circle at 80% 20%, rgba(125, 211, 252, 0.12), transparent 22%),
+    linear-gradient(180deg, #07111f 0%, #0c1729 100%);
+  --color-text: #e5eefb;
+  --color-muted: #9fb0c7;
+  --color-border: rgba(148, 163, 184, 0.16);
+  --color-surface: rgba(11, 20, 37, 0.88);
+  --color-surface-strong: #122036;
+  --color-surface-hover: rgba(255, 255, 255, 0.06);
+  --color-surface-alt: rgba(255, 255, 255, 0.03);
+  --color-header: rgba(5, 10, 20, 0.72);
+  --color-footer: rgba(5, 10, 20, 0.6);
+  --color-primary: #7dd3fc;
+  --color-primary-strong: #38bdf8;
+  --color-primary-soft: rgba(56, 189, 248, 0.12);
+  --color-primary-soft-hover: rgba(56, 189, 248, 0.18);
+  --color-primary-border: rgba(125, 211, 252, 0.3);
+  --color-primary-border-hover: rgba(125, 211, 252, 0.45);
+  --color-primary-contrast: #111827;
+  --shadow: 0 24px 80px rgba(2, 8, 23, 0.45);
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  --page-background:
+    radial-gradient(circle at top, rgba(14, 165, 233, 0.14), transparent 34%),
+    radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.08), transparent 24%),
+    linear-gradient(180deg, #f8fbff 0%, #e9f2fb 100%);
+  --color-text: #102033;
+  --color-muted: #475569;
+  --color-border: rgba(15, 23, 42, 0.12);
+  --color-surface: rgba(255, 255, 255, 0.9);
+  --color-surface-strong: #ffffff;
+  --color-surface-hover: rgba(15, 23, 42, 0.04);
+  --color-surface-alt: rgba(15, 23, 42, 0.03);
+  --color-header: rgba(255, 255, 255, 0.75);
+  --color-footer: rgba(255, 255, 255, 0.68);
+  --color-primary: #0284c7;
+  --color-primary-strong: #0369a1;
+  --color-primary-soft: rgba(14, 165, 233, 0.12);
+  --color-primary-soft-hover: rgba(14, 165, 233, 0.18);
+  --color-primary-border: rgba(14, 165, 233, 0.24);
+  --color-primary-border-hover: rgba(14, 165, 233, 0.38);
+  --color-primary-contrast: #111827;
+  --shadow: 0 24px 80px rgba(15, 23, 42, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  color: var(--color-text);
+  background: var(--page-background);
+  font-family: Inter, "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+::selection {
+  background: rgba(125, 211, 252, 0.3);
+}
