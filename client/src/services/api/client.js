@@ -10,7 +10,21 @@ export async function request(path, options = {}) {
   })
 
   if (!response.ok) {
-    throw new Error(`Request failed with status ${response.status}`)
+    let message = `Request failed with status ${response.status}`
+
+    try {
+      const errorBody = await response.json()
+      if (errorBody?.message) {
+        message = errorBody.message
+      }
+    } catch (_error) {
+      const responseText = await response.text()
+      if (responseText) {
+        message = responseText
+      }
+    }
+
+    throw new Error(message)
   }
 
   return response.json()

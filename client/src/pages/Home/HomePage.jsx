@@ -28,16 +28,33 @@ const pillars = [
 
 function HomePage() {
   const [authMode, setAuthMode] = useState(null)
+  const [authNotice, setAuthNotice] = useState(null)
 
   const openLogin = () => setAuthMode('login')
   const openSignup = () => setAuthMode('signup')
-  const closeAuth = () => setAuthMode(null)
+  const closeAuth = () => {
+    setAuthMode(null)
+  }
+
+  const handleAuthSuccess = (session) => {
+    setAuthNotice(session)
+    closeAuth()
+  }
 
   return (
     <>
       <section id="overview" className="border-b border-[color:var(--color-border)]">
         <Container className="grid gap-10 py-14 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:py-20">
           <div className="space-y-8">
+            {authNotice ? (
+              <div
+                role="status"
+                className="rounded-2xl border border-emerald-400/25 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-200"
+              >
+                {authNotice.message || 'Authentication completed successfully.'}
+              </div>
+            ) : null}
+
             <span className="inline-flex rounded-full border border-[color:var(--color-primary-border)] bg-[color:var(--color-primary-soft)] px-4 py-2 text-sm font-medium text-[color:var(--color-primary-contrast)]">
               Premium bike rental, bookings, and rider support
             </span>
@@ -190,6 +207,7 @@ function HomePage() {
         mode={authMode || 'login'}
         onClose={closeAuth}
         onModeChange={setAuthMode}
+        onSuccess={handleAuthSuccess}
       />
     </>
   )
